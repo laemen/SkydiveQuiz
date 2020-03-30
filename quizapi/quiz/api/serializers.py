@@ -1,10 +1,13 @@
 from datetime import datetime
 from django.utils.timesince import timesince
 from rest_framework import serializers
-from quiz.models import Question, Answer
+
+from quiz.models import Answer, Profile, Question
 
 
 class AnswerSerializer(serializers.ModelSerializer):
+
+    author = serializers.StringRelatedField(read_only=True)
 
     class Meta:
         model = Answer
@@ -15,6 +18,7 @@ class AnswerSerializer(serializers.ModelSerializer):
 class QuestionSerializer(serializers.ModelSerializer):
 
     answers = AnswerSerializer(many=True, read_only=True)
+    author = serializers.StringRelatedField(read_only=True)
     time_since_publication = serializers.SerializerMethodField()
 
     class Meta:
@@ -23,9 +27,19 @@ class QuestionSerializer(serializers.ModelSerializer):
 
     def get_time_since_publication(self, object):
         publication_date = object.publication_date
-        now = datetime.now()
-        time_delta = timesince(publication_date, now)
+        time_delta = None
+        if publication_date is not None:
+            now = datetime.now()
+            time_delta = timesince(publication_date, now)
         return time_delta
 
 
+
+class ProfileSerializer(serializers.ModelSerializer):
+
+    user = serializers.StringRelatedField(read_only=True)
+
+    class Meta:
+        model = Profile
+        fields = "__all__"
 
