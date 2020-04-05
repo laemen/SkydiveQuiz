@@ -14,8 +14,43 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
+
+from django_registration.backends.one_step.views import RegistrationView
+
+from users.forms import SkydiveQuizUserForm
+
+# http://django-registration.readthedocs.io/en/3.0/activation-workflow.html
 
 urlpatterns = [
+    # admin url
     path('admin/', admin.site.urls),
+
+    # custome registration view for SkydiveQuiz user
+    path('accounts/register/', 
+        RegistrationView.as_view(
+            form_class=SkydiveQuizUserForm,
+            success_url="/",
+    ), name="django_registration_register"),
+
+    # other urls used by the django_registration package
+    path('accounts/', 
+        include("django_registration.backends.one_step.urls")),
+
+    # login urls provided by django to login users via the browser
+    path('accounts/', 
+        include("django.contrib.auth.urls")),
+
+    # login url for the browsable api
+    path('api-auth/', 
+        include("rest_framework.urls")),
+
+    # login endpoints to use via REST
+    path('api/rest-auth/', 
+        include("rest_auth.urls")),
+
+    # registration endpoint to use via REST
+    path('api/rest-auth/registration', 
+        include("rest_auth.registration.urls")),
+        
 ]

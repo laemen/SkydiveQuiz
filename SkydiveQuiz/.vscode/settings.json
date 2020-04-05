@@ -1,0 +1,6 @@
+{
+    "python.venvPath": "/Users/laeme498/Projects/SkydiveQuiz",
+    "python.pythonPath": "/Users/laeme498/Projects/SkydiveQuiz/venv/bin/python",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+}
