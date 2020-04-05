@@ -1,11 +1,11 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from users.models import SkydiveQuizUser
+from users.models import CustomUser
 
-class SkydiveQuizUserAdmin(UserAdmin):
+class CustomUserAdmin(UserAdmin):
     # add_form =
     # form =
-    model = SkydiveQuizUser
+    model = CustomUser
     list_display = ["username", "email", "is_staff"]
 
-admin.site.register(SkydiveQuizUser, SkydiveQuizUserAdmin)
+admin.site.register(CustomUser, CustomUserAdmin)

@@ -51,8 +51,8 @@ INSTALLED_APPS = [
 
     'crispy_forms',
 
-    'questions',
-    'users'
+    'users',
+    'questions'
 ]
 
 MIDDLEWARE = [
@@ -139,7 +139,7 @@ LOGOUT_REDIRECT_URL = "/"
 STATIC_URL = '/static/'
 
 # SkydiveQuiz User Model
-AUTH_USER_MODEL = "users.SkydiveQuizUser"
+AUTH_USER_MODEL = "users.CustomUser"
 
 # django-crispy-forms
 CRISPY_TEMPLATE_PACK = "bootstrap4"

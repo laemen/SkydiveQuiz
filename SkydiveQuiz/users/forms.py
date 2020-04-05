@@ -1,8 +1,8 @@
 from django_registration.forms import RegistrationForm
-from users.models import SkydiveQuizUser
+from users.models import CustomUser
 
 
-class SkydiveQuizUserForm(RegistrationForm):
+class CustomUserForm(RegistrationForm):
 
     class Meta(RegistrationForm.Meta):
-        model = SkydiveQuizUser
+        model = CustomUser

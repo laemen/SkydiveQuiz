@@ -1,6 +1,6 @@
 from django.urls import path
-from users.api.views import SkydiveQuizUserAPIView
+from users.api.views import CustomUserAPIView
 
 urlpatterns = [
-    path("user/", SkydiveQuizUserAPIView.as_view(), name="skydivequiz-user")
+    path("user/", CustomUserAPIView.as_view(), name="custom-user")
 ]

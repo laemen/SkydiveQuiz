@@ -19,7 +19,7 @@ from django.urls import include, path, re_path
 from django_registration.backends.one_step.views import RegistrationView
 
 from core.views import IndexTemplateView
-from users.forms import SkydiveQuizUserForm
+from users.forms import CustomUserForm
 
 # http://django-registration.readthedocs.io/en/3.0/activation-workflow.html
 
@@ -30,7 +30,7 @@ urlpatterns = [
     # custome registration view for SkydiveQuiz user
     path('accounts/register/', 
         RegistrationView.as_view(
-            form_class=SkydiveQuizUserForm,
+            form_class=CustomUserForm,
             success_url="/",
     ), name="django_registration_register"),
 

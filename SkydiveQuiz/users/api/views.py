@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from users.api.serializers import UserDisplaySerializer
 
 
-class SkydiveQuizUserAPIView(APIView):
+class CustomUserAPIView(APIView):
 
     def get(self, request):
         serializer = UserDisplaySerializer(request.user)

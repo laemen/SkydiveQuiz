@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from users.models import SkydiveQuizUser
+from users.models import CustomUser
 
 class UserDisplaySerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = SkydiveQuizUser
+        model = CustomUser
         fields = ["username"]
