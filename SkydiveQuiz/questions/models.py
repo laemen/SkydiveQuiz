@@ -10,6 +10,8 @@ class Question(models.Model):
     slug = models.SlugField(max_length=255, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    voters = models.ManyToManyField(settings.AUTH_USER_MODEL,
+                                    related_name="question_votes")
 
     def __str__(self):
         return self.content
@@ -26,6 +28,8 @@ class Answer(models.Model):
                                on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    voters = models.ManyToManyField(settings.AUTH_USER_MODEL,
+                                    related_name="answer_votes")
 
     def __str__(self):
         return self.author.username

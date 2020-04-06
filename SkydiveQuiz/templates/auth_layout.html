@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Skydive Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
     <style>
+        html, body {
+            height: 100%;
+            font-family: "Playfair Display", serif;
+        }
+        .auth-box {
+            border: 3px solid lightgrey;
+            border-radius: 10px;
+            padding-top: 25px;
+            padding-bottom: 25px;
+            width: 600px;
+            margin: auto;
+        }
         .login-form-container {
             width: 300px;
             margin: auto;
@@ -14,13 +27,20 @@
             width: 400px;
             margin: auto;
         }
+        .outer-area {
+            margin-top: 100px;
+
+        }
     </style>
 </head>
 <body>
     
-    <div class="auth-box text-center">
-        {% block content %}
-        {% endblock %}
+    <div class="outer-area">
+        <div class="auth-box text-center">
+            {% block content %}
+            {% endblock %}
+        </div>   
     </div>
+
 </body>
 </html>
